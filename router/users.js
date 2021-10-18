@@ -20,7 +20,8 @@ router
     res.json(users);
   })
   .post((req, res) => {
-    res.send("Post Users");
+    users.push(req.body);
+    res.send(users);
   });
 
 router.put("/users/:userId", (req, res) => {
