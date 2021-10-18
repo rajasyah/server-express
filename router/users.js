@@ -25,8 +25,17 @@ router
   });
 
 router.put("/users/:userId", (req, res) => {
-  const id = req.params;
-  res.send(id);
+  const id = req.params.userId;
+  users.filter((user) => {
+    if (user.id == id) {
+      user.id = id;
+      user.nama = req.body.nama;
+      user.email = req.body.email;
+
+      return user;
+    }
+  });
+  res.json(users);
 });
 
 router.delete("/users/:userId", (req, res) => {
