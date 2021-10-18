@@ -40,7 +40,8 @@ router.put("/users/:userId", (req, res) => {
 
 router.delete("/users/:userId", (req, res) => {
   const id = req.params.userId;
-  res.send(id);
+  users = users.filter((user) => user.id != id);
+  res.json(users);
 });
 
 module.exports = router;
